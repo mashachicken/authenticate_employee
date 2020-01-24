@@ -1,4 +1,6 @@
 class DivisionsController < ApplicationController
+   before_action :authorize, only: [:new, :update, :edit]
+   before_action :admin_access, only: [:destroy]
     def index
         # Code for listing all divisions goes here.
         @divisions = Division.all
